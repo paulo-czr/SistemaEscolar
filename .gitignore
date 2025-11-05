@@ -1,0 +1,49 @@
+# ===== .gitignore - Sistema Escolar =====
+
+# Ambiente
+.env
+
+# Logs
+*.log
+
+# Compilados
+*.class
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Build e distribuição
+/build/
+/dist/
+/out/
+
+# Backup e temporários
+*.bak
+*.tmp
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/nbactions.xml
+/nb-configuration.xml
+
+# IntelliJ IDEA
+/.idea/
+/*.iml
+
+# Eclipse
+/.classpath
+/.project
+/.settings/
+
+# VS Code
+/.vscode/
+
+# JARs (opcional)
+*.jar
+
+# Bancos e SQL
+*.db
+*.sql
