@@ -1,24 +1,49 @@
-# Compiled class file
-*.class
+# ===== .gitignore - Sistema Escolar =====
 
-# Log file
+# Ambiente
+.env
+
+# Logs
 *.log
 
-# BlueJ files
-*.ctxt
+# Compilados
+*.class
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
 
-# Package Files #
+# Build e distribuição
+/build/
+/dist/
+/out/
+
+# Backup e temporários
+*.bak
+*.tmp
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/nbactions.xml
+/nb-configuration.xml
+
+# IntelliJ IDEA
+/.idea/
+/*.iml
+
+# Eclipse
+/.classpath
+/.project
+/.settings/
+
+# VS Code
+/.vscode/
+
+# JARs (opcional)
 *.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Bancos e SQL
+*.db
+*.sql
