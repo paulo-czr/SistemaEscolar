@@ -89,7 +89,6 @@ public class CadastroDeCursos extends javax.swing.JFrame {
             }
         });
         tabelaCursos.setEnabled(false);
-        tabelaCursos.setRowSelectionAllowed(true);
         jScrollPane1.setViewportView(tabelaCursos);
 
         btnSalvar.setText("Salvar");
@@ -131,7 +130,7 @@ public class CadastroDeCursos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(lbTItulo)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +149,7 @@ public class CadastroDeCursos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
                     .addComponent(btnSair))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );

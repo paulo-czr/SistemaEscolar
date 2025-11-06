@@ -1,6 +1,8 @@
 package view;
 
 import DAO.DAOAluno;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
@@ -10,10 +12,10 @@ import model.Aluno;
 /**
  * Tela de cadastro de alunos do sistema escolar.
  * <p>
- * Permite inserir novos alunos, listar os alunos cadastrados
- * e limpar os campos do formulário.
+ * Permite inserir novos alunos, listar os alunos cadastrados e limpar os campos
+ * do formulário.
  * </p>
- * 
+ *
  * @author Paulo
  * @version 1.0
  */
@@ -24,8 +26,8 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
     /**
      * Construtor da tela de cadastro.
      * <p>
-     * Inicializa os componentes, configura a tabela de alunos
-     * e centraliza a tela na tela do usuário.
+     * Inicializa os componentes, configura a tabela de alunos e centraliza a
+     * tela na tela do usuário.
      * </p>
      */
     public CadastroDeAlunos() {
@@ -39,7 +41,7 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
 
         // Lista os alunos já cadastrados no banco
         listarAlunos();
-        
+
         // Centraliza a janela
         setLocationRelativeTo(null);
     }
@@ -53,7 +55,6 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbTitulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbNome = new javax.swing.JLabel();
         lbTelefone = new javax.swing.JLabel();
@@ -64,15 +65,14 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         btnSair = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
+        lbNascimento = new javax.swing.JLabel();
+        txtDataBR = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbTitulo.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lbTitulo.setText("Cadastro de Aluno");
-
         jLabel1.setText("E-mail:");
 
-        lbNome.setText("Nome:");
+        lbNome.setText("Nome do Aluno:");
 
         lbTelefone.setText("Telefone:");
 
@@ -122,62 +122,64 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
             }
         });
 
+        lbNascimento.setText("Nascimento:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lbTelefone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnSair)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnSalvar))
-                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(lbNome))
-                                .addGap(35, 35, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNome)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)))))
+                        .addComponent(btnSair)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalvar))
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(lbTitulo)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addComponent(lbNome)
+                        .addGap(189, 189, 189)
+                        .addComponent(lbTelefone))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDataBR))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbNascimento)
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(lbTitulo)
-                .addGap(36, 36, 36)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNome)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(lbTelefone))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(lbNascimento))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbTelefone)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataBR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSair)
                     .addComponent(btnSalvar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,8 +237,8 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
     }
 
     /**
-    * Lê os dados digitados pelo usuário, valida e salva um aluno no banco.
-    */
+     * Lê os dados digitados pelo usuário, valida e salva um aluno no banco.
+     */
     private void salvarAluno() {
 
         // Cria um objeto Aluno para guardar os dados digitados
@@ -246,12 +248,28 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
         String nome = txtNome.getText().trim();
         String email = txtEmail.getText().trim();
         String telefone = txtTelefone.getText().trim();
+        String dataBR = txtDataBR.getText().trim();
+        //Converte a data digitada
+        String dataSQL = converterDataParaMySQL(dataBR);
 
-        // Valida campos obrigatórios
-        if (nome.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Os campos Nome e E-mail são obrigatórios!",
-                    "Atenção", JOptionPane.WARNING_MESSAGE);
+        // Valida o nome
+        if (validarNome(txtNome.getText()) == false) {
+            JOptionPane.showMessageDialog(null, "Nome inválido",
+                    "Erro", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        //Valida o email
+        if (validarEmail(txtEmail.getText()) == false) {
+            JOptionPane.showMessageDialog(null, "E-mail inválido!",
+                    "Erro", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        //Data obrigatória
+        if (dataSQL  == null) {
+            JOptionPane.showMessageDialog(null, "Data inválida -> Correto: dd/MM/aaaa",
+                    "Erro", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -259,6 +277,7 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
         aluno.setNome(nome);
         aluno.setEmail(email);
         aluno.setTelefone(telefone);
+        aluno.setDataNasc(dataSQL);
 
         // Envia para o banco de dados via DAO
         DAOAluno dao = new DAOAluno();
@@ -270,10 +289,9 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
         limparCampos();
     }
 
-
     /**
-    * Lista todos os alunos ativos na tabela da interface.
-    */
+     * Lista todos os alunos ativos na tabela da interface.
+     */
     protected void listarAlunos() {
         DefaultTableModel modelo = (DefaultTableModel) tabelaAluno.getModel();
         modelo.setRowCount(0); // Limpa a tabela antes de atualizar
@@ -293,8 +311,8 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
     }
 
     /**
-    * Limpa os campos do formulário e coloca o cursor no campo Nome.
-    */
+     * Limpa os campos do formulário e coloca o cursor no campo Nome.
+     */
     private void limparCampos() {
         txtNome.setText("");
         txtEmail.setText("");
@@ -302,16 +320,69 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
         txtNome.requestFocus();
     }
 
+    /**
+     * Converte a data digitada pelo usuário (dataBR) para uma data aceita pelo
+     * SQL
+     *
+     * @param dataBR será convertido em dataSQL
+     */
+    private String converterDataParaMySQL(String dataBR) {
+        try {
+            SimpleDateFormat formatoEntrada = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formatoSaida = new SimpleDateFormat("yyyy-MM-dd");
 
+            // Converte a string de entrada para o formato MySQL
+            Date data = formatoEntrada.parse(dataBR);
+            return formatoSaida.format(data);
+
+        } catch (Exception e) {
+            System.out.println(" Erro ao converter data: " + e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Método usado para validação do email
+     * @param email email digitado no campo txtEmail do painel
+     * @return o resultado da validação REGEX - true se for válido, false se não
+     */
+    public static boolean validarEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            return false;
+        }
+
+        // Valida estrutura básica de e-mail
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+
+        return email.matches(regex);
+    }
+
+    /**
+     * Método usado para validar o nome de uma pessoa
+     * @param nome nome digitado pelo usuário no campo txtNome do painel
+     * @return resultado da validação REGEX - true se válido, false se não
+     */
+    public static boolean validarNome(String nome) {
+    if (nome == null || nome.isEmpty()) {
+        return false;
+    }
+
+    // Aceita letras, acentos e espaços entre os nomes
+    String regex = "^[A-Za-zÀ-Ÿà-ÿ]+( [A-Za-zÀ-Ÿà-ÿ]+)*$";
+
+    return nome.matches(regex);
+}
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbNascimento;
     private javax.swing.JLabel lbNome;
     private javax.swing.JLabel lbTelefone;
-    private javax.swing.JLabel lbTitulo;
     private javax.swing.JTable tabelaAluno;
+    private javax.swing.JTextField txtDataBR;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTelefone;

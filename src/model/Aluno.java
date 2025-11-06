@@ -18,6 +18,7 @@ public class Aluno {
     private String email;
     private String telefone;
     private boolean ativo;
+    private String dataNasc;
 
     // Construtores 
     /**
@@ -29,14 +30,15 @@ public class Aluno {
     /**
      * Construtor completo (usado quando todos os dados do aluno já estão disponíveis).
      */
-    public Aluno(int id_aluno, String nome, String email, String telefone) {
+    public Aluno(int id_aluno, String nome, String email, String telefone, String dataNasc) {
         this.id_aluno = id_aluno;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
+        this.dataNasc = dataNasc;   
         this.ativo = true;
     }
-
+    
     // Getters e Setters 
     public int getId_aluno() {
         return id_aluno;
@@ -78,6 +80,14 @@ public class Aluno {
         this.ativo = ativo;
     }
 
+    public String getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+    
     // Métodos auxiliares
     /**
      * Retorna o nome do aluno como representação textual do objeto.

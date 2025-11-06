@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import model.Aluno;
+import java.util.Date;
 
 /**
  * Classe responsável por realizar as operações de acesso e manipulação de dados
@@ -22,7 +23,7 @@ public class DAOAluno {
     public void salvar(Aluno aluno) {
 
         // Comando SQL com os campos e valores (os ? serão substituídos pelos dados)
-        String sql = "INSERT INTO Aluno (nome, email, telefone) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Aluno (nome, email, telefone, data_nasc) VALUES (?, ?, ?, ?)";
 
         // Abre a conexão e prepara o comando SQL
         try (Connection con = Conexao.conectar();
@@ -32,6 +33,7 @@ public class DAOAluno {
             stmt.setString(1, aluno.getNome());
             stmt.setString(2, aluno.getEmail());
             stmt.setString(3, aluno.getTelefone());
+            stmt.setString(4, aluno.getDataNasc());
 
             // Executa o comando no banco
             stmt.executeUpdate();
@@ -46,9 +48,9 @@ public class DAOAluno {
     /**
      * Marca um aluno como inativo no banco de dados (exclusão lógica).
      *
-     * @param aluno objeto {@link Aluno} que será definido como inativo
+     * @param id_aluno usado para definir o aluno exato como inativo
      */
-    public void excluir(Aluno aluno) {
+    public void excluir(int id_aluno) {
 
         // Atualiza o campo "ativo" para false, desativando o aluno
         String sql = "UPDATE Aluno SET ativo = false WHERE id_aluno = ?";
@@ -58,7 +60,7 @@ public class DAOAluno {
              PreparedStatement stmt = con.prepareStatement(sql)) {
 
             // Define o ID do aluno a ser inativado
-            stmt.setInt(1, aluno.getId_aluno());
+            stmt.setInt(1, id_aluno);
 
             // Executa o comando no banco
             stmt.executeUpdate();
@@ -100,6 +102,7 @@ public class DAOAluno {
                 a.setNome(rs.getString("nome"));
                 a.setEmail(rs.getString("email"));
                 a.setTelefone(rs.getString("telefone"));
+                a.setDataNasc(rs.getString("data_nasc"));
 
                 // Adiciona o aluno à lista
                 lista.add(a);
