@@ -31,10 +31,8 @@
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="lbMensagem" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="txtIdMatricula" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="lbMatricula" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="txtIdMatricula" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="lbMatricula" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnSair" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>

@@ -31,7 +31,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbMenuInicial = new javax.swing.JLabel();
+        lbTitulo = new javax.swing.JLabel();
         lbAluno = new javax.swing.JLabel();
         lbCurso = new javax.swing.JLabel();
         lbMatricula = new javax.swing.JLabel();
@@ -44,10 +44,11 @@ public class TelaInicial extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema Escolar");
 
-        lbMenuInicial.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        lbMenuInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbMenuInicial.setText("Menu Inicial");
+        lbTitulo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbTitulo.setText("Sistema Escolar");
 
         lbAluno.setText("Aluno:");
 
@@ -55,7 +56,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         lbMatricula.setText("Matrícula: ");
 
-        btnNovaMatricula.setText("Novo");
+        btnNovaMatricula.setText(" Novo ");
         btnNovaMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovaMatriculaActionPerformed(evt);
@@ -69,7 +70,7 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        btnNovoCurso.setText("Novo");
+        btnNovoCurso.setText(" Novo ");
         btnNovoCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoCursoActionPerformed(evt);
@@ -83,7 +84,7 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        btnNovoAluno.setText("Novo");
+        btnNovoAluno.setText(" Novo ");
         btnNovoAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoAlunoActionPerformed(evt);
@@ -113,49 +114,58 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbMatricula)
-                            .addComponent(lbCurso)
-                            .addComponent(lbAluno))
-                        .addGap(18, 18, 18)
+                            .addComponent(lbAluno)
+                            .addComponent(btnNovoAluno)
+                            .addComponent(btnExcluirAluno))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(btnExcluirCurso))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnNovoAluno, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnNovoCurso))
-                                    .addComponent(btnNovaMatricula))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnExcluirCurso)
-                                    .addComponent(btnExcluirAluno)
-                                    .addComponent(btnExcluirMatricula)))
-                            .addComponent(lbMenuInicial)))
+                                    .addComponent(lbCurso)
+                                    .addComponent(btnNovoCurso))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnExcluirMatricula, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnNovaMatricula)
+                            .addComponent(lbMatricula)))
                     .addComponent(btnSair))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbTitulo)
+                .addGap(108, 108, 108))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lbMenuInicial)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbAluno)
-                    .addComponent(btnNovoAluno)
-                    .addComponent(btnExcluirAluno))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbCurso)
-                    .addComponent(btnNovoCurso)
-                    .addComponent(btnExcluirCurso))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbMatricula)
-                    .addComponent(btnNovaMatricula)
-                    .addComponent(btnExcluirMatricula))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(lbTitulo)
+                        .addGap(24, 24, 24)
+                        .addComponent(lbMatricula)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnNovaMatricula))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbAluno)
+                            .addComponent(lbCurso))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnNovoAluno)
+                            .addComponent(btnNovoCurso))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnExcluirAluno)
+                            .addComponent(btnExcluirCurso)
+                            .addComponent(btnExcluirMatricula))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addComponent(btnSair)
-                .addGap(41, 41, 41))
+                .addGap(57, 57, 57))
         );
 
         pack();
@@ -296,6 +306,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel lbAluno;
     private javax.swing.JLabel lbCurso;
     private javax.swing.JLabel lbMatricula;
-    private javax.swing.JLabel lbMenuInicial;
+    private javax.swing.JLabel lbTitulo;
     // End of variables declaration//GEN-END:variables
 }
