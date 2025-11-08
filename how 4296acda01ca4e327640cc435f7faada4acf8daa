@@ -1,0 +1,48 @@
+[33mcommit 4296acda01ca4e327640cc435f7faada4acf8daa[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Paulo Cesar <PauloCesarCoder@gmail.com>
+Date:   Sat Nov 8 15:46:00 2025 -0300
+
+    Atualizações nos campos de Matriculas e Cursos
+
+[33mcommit 9912f3d4a1c96110f825efeb60e8671308bd7577[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Paulo Cesar <PauloCesarCoder@gmail.com>
+Date:   Thu Nov 6 13:53:02 2025 -0300
+
+    Update na classe Aluno
+
+[33mcommit b5668653019228b59ef0b78605d83a69fd819959[m
+Author: Paulo Cesar <PauloCesarCoder@gmail.com>
+Date:   Wed Nov 5 13:35:58 2025 -0300
+
+    Arquivos .gitignore
+
+[33mcommit ab7202052bdeec2865843c8f8b2ce170b4a8b5d2[m
+Author: Paulo Cesar <PauloCesarCoder@gmail.com>
+Date:   Wed Nov 5 13:32:29 2025 -0300
+
+    Removendo build do versionamento
+
+[33mcommit 91540f97a39662fef04e7ecbc4b56dd734ed55a7[m
+Merge: e3ad1aa c791633
+Author: Paulo Cesar <PauloCesarCoder@gmail.com>
+Date:   Wed Nov 5 13:25:23 2025 -0300
+
+    Merge branch 'main' of https://github.com/paulo-czr/SistemaEscolar
+
+[33mcommit e3ad1aa5fdc399f9556bc17e4598c145f25e57bb[m
+Author: Paulo Cesar <PauloCesarCoder@gmail.com>
+Date:   Wed Nov 5 13:23:47 2025 -0300
+
+    Initial Commit
+
+[33mcommit c7916337a89ef11de79c849ca01f7a7d29324052[m
+Author: Paulo Cesar <paulocesarcoder@gmail.com>
+Date:   Wed Nov 5 13:19:53 2025 -0300
+
+    Update .gitignore
+
+[33mcommit 0f8bcb3aebef55138d2bbbf6143dbb04160e4eca[m
+Author: Paulo Cesar <paulocesarcoder@gmail.com>
+Date:   Wed Nov 5 13:19:16 2025 -0300
+
+    Initial commit
