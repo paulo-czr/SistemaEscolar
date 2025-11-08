@@ -50,7 +50,6 @@ public class CadastroDeCursos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbTItulo = new javax.swing.JLabel();
         lbNomeCurso = new javax.swing.JLabel();
         txtNomeCurso = new javax.swing.JTextField();
         lbCargaHoraria = new javax.swing.JLabel();
@@ -61,9 +60,7 @@ public class CadastroDeCursos extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lbTItulo.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lbTItulo.setText("Cadastro de Cursos");
+        setTitle("Cadastro de Cursos");
 
         lbNomeCurso.setText("Nome do Curso: ");
 
@@ -89,6 +86,7 @@ public class CadastroDeCursos extends javax.swing.JFrame {
             }
         });
         tabelaCursos.setEnabled(false);
+        tabelaCursos.setMinimumSize(new java.awt.Dimension(60, 80));
         jScrollPane1.setViewportView(tabelaCursos);
 
         btnSalvar.setText("Salvar");
@@ -110,48 +108,44 @@ public class CadastroDeCursos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addComponent(lbNomeCurso)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(txtNomeCurso)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbCargaHoraria)
-                                    .addComponent(lbNomeCurso))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnSair)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnSalvar))
-                                    .addComponent(txtCargaHoraria, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(lbTItulo)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                                    .addComponent(txtCargaHoraria, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnSair)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSalvar)))
+                        .addGap(46, 46, 46))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(lbTItulo)
-                .addGap(36, 36, 36)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNomeCurso)
-                    .addComponent(txtNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCargaHoraria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbCargaHoraria))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar)
-                    .addComponent(btnSair))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                    .addComponent(txtNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCargaHoraria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSair)
+                    .addComponent(btnSalvar))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -215,10 +209,18 @@ public class CadastroDeCursos extends javax.swing.JFrame {
         String nomeCurso = txtNomeCurso.getText().trim();
         String cargaHoraria = txtCargaHoraria.getText().trim();
 
-        // Valida campos obrigatórios
-        if (nomeCurso.isEmpty() || cargaHoraria.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Os campos Nome do Curso e Carga Horária são obrigatórios!",
+        // Validação do Curso
+        if (validarCurso(txtNomeCurso.getText().trim()) == false) {
+            JOptionPane.showMessageDialog(null,
+                    "Nome do Curso não pode ser vazio!",
+                    "Atenção", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        //Validação da Carga Horária
+        if (validarCargaHoraria(txtCargaHoraria.getText().trim()) == false) {
+            JOptionPane.showMessageDialog(null,
+                    "Digite um valor válido!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -242,7 +244,7 @@ public class CadastroDeCursos extends javax.swing.JFrame {
      * Lista todos os cursos na tabela da interface.
      */
     private void listarCursos() {
-        DefaultTableModel modelo = (DefaultTableModel) tabelaCursos.getModel();
+        tabelaCursos.getModel();
         modelo.setRowCount(0); // Limpa a tabela antes de atualizar
 
         DAOCurso dao = new DAOCurso();
@@ -267,13 +269,40 @@ public class CadastroDeCursos extends javax.swing.JFrame {
         txtNomeCurso.requestFocus();
     }
 
+    /**
+     * Validação do que será digitado no campo txtCurso
+     * @param curso String recebida através do painel, futuramente
+     * @return Retorna o curso contendo somente letras, acentos e espaços
+     */
+    public static boolean validarCurso(String curso){
+        if (curso == null || curso.isBlank()) {
+            return false;
+        }
+        
+        //Aceita letras, acentos, espaços e mais alguns símbolos
+        return curso.matches("[A-Za-zÀ-Ÿà-ÿ ]+");
+    }
+    
+    /**
+     * Valida a carga horária, só aceita números
+     * @param cargaHoraria Será recebida do painel futuramente
+     * @return retorna o true caso o valor seja ideal
+     */
+    public static boolean validarCargaHoraria(String cargaHoraria){
+        if (cargaHoraria == null || cargaHoraria.isBlank()) {
+            return false;
+        }
+        
+        //Aceita somente números, recusa vazios
+        return cargaHoraria.matches("\\d+");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbCargaHoraria;
     private javax.swing.JLabel lbNomeCurso;
-    private javax.swing.JLabel lbTItulo;
     private javax.swing.JTable tabelaCursos;
     private javax.swing.JTextField txtCargaHoraria;
     private javax.swing.JTextField txtNomeCurso;

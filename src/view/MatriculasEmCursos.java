@@ -13,6 +13,8 @@ import model.Matricula;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.text.SimpleDateFormat;
+import util.DataUtils;
 
 /**
  * Tela de matrícula de alunos em cursos.
@@ -36,7 +38,7 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
 
         // Configura a tabela
         modelo = new DefaultTableModel(
-                new Object[]{"ID","Aluno", "Curso", "Data"}, 0
+                new Object[]{"ID","Aluno", "Curso", "Data da Matrícula"}, 0
         );
 
         tabelaMatricula.setModel(modelo);
@@ -58,7 +60,6 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbTitulo = new javax.swing.JLabel();
         lbAluno = new javax.swing.JLabel();
         comboAluno = new javax.swing.JComboBox<>();
         lbCruso = new javax.swing.JLabel();
@@ -68,12 +69,10 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
         tabelaMatricula = new javax.swing.JTable();
         btnSair = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
-        escolhaData = new com.toedter.calendar.JDateChooser();
+        txtDataBR = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lbTitulo.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        lbTitulo.setText("Matrícular Aluno");
+        setTitle("Matricular Aluno");
 
         lbAluno.setText("Aluno: ");
 
@@ -95,7 +94,7 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Aluno", "Curso", "Data"
+                "ID", "Aluno", "Curso", "Data da Matrícula"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -127,59 +126,50 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(lbTitulo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbCruso)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comboCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lbAluno)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                                .addComponent(comboAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbAluno)
+                            .addComponent(lbCruso)
+                            .addComponent(comboAluno, 0, 357, Short.MAX_VALUE)
+                            .addComponent(comboCurso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(txtDataBR, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCruso1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbCruso1)
-                                    .addComponent(btnSair))
+                                .addComponent(btnSair)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSalvar, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(escolhaData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(167, Short.MAX_VALUE))
+                                .addComponent(btnSalvar))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 27, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lbTitulo)
-                .addGap(70, 70, 70)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbAluno)
-                    .addComponent(comboAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(lbCruso1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCruso))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbCruso1)
-                    .addComponent(escolhaData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataBR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalvar)
-                    .addComponent(btnSair))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lbCruso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSair)
+                    .addComponent(btnSalvar))
+                .addGap(63, 63, 63))
         );
 
         pack();
@@ -243,8 +233,7 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
     private void salvarMatricula() {
         Aluno aluno = (Aluno) comboAluno.getSelectedItem();
         Curso curso = (Curso) comboCurso.getSelectedItem();
-        Date data = escolhaData.getDate();
-        Date hoje = new Date();
+        String dataBR = txtDataBR.getText().trim();
 
         //Verificações simples
         if (aluno == null || curso == null) {
@@ -254,18 +243,18 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
             return;
         }
 
-        if (data == null || data.after(hoje)) {
-            JOptionPane.showMessageDialog(this,
-                    "Por favor, selecione uma data válida!",
-                    "Atenção", JOptionPane.WARNING_MESSAGE);
+        //Validação da Data
+        if (DataUtils.validarData(dataBR) == null) {
             return;
         }
+        //Converte a data digitada
+        String dataSQL = DataUtils.converterDataParaMySQL(dataBR);
 
         // Cria um novo objeto Matricula e associa Aluno, Curso e Data
         Matricula matricula = new Matricula();
         matricula.setAluno(aluno);
         matricula.setCurso(curso);
-        matricula.setDataCurso(data);
+        matricula.setDataCurso(dataSQL);
 
         DAOMatricula dao = new DAOMatricula();
         try {
@@ -322,18 +311,37 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
             comboCurso.addItem(c);
         }
     }
+    
+        /**
+     * Converte a data digitada pelo usuário (dataBR) para uma data aceita pelo
+     * SQL
+     *
+     * @param dataBR será convertido em dataSQL
+     */
+    public String converterDataParaMySQL(String dataBR) {
+        try {
+            SimpleDateFormat formatoEntrada = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formatoSaida = new SimpleDateFormat("yyyy-MM-dd");
 
+            // Converte a string de entrada para o formato MySQL
+            Date data = formatoEntrada.parse(dataBR);
+            return formatoSaida.format(data);
+
+        } catch (Exception e) {
+            System.out.println(" Erro ao converter data: " + e.getMessage());
+            return null;
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<Aluno> comboAluno;
     private javax.swing.JComboBox<Curso> comboCurso;
-    private com.toedter.calendar.JDateChooser escolhaData;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbAluno;
     private javax.swing.JLabel lbCruso;
     private javax.swing.JLabel lbCruso1;
-    private javax.swing.JLabel lbTitulo;
     private javax.swing.JTable tabelaMatricula;
+    private javax.swing.JTextField txtDataBR;
     // End of variables declaration//GEN-END:variables
 }

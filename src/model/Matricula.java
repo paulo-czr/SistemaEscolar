@@ -21,7 +21,7 @@ public class Matricula {
     private int id_curso;
     private Aluno aluno;
     private Curso curso;
-    private Date dataCurso;
+    private String dataCurso;
     private String nomeAluno;   // Nome do aluno (usado em consultas)
     private String nomeCurso;   // Nome do curso (usado em consultas)
     private boolean ativa;
@@ -36,7 +36,7 @@ public class Matricula {
     /**
      * Construtor completo (usado quando todos os dados da matrícula já estão disponíveis).
      */
-    public Matricula(int id_matricula, int id_aluno, int id_curso, Aluno aluno, Curso curso, Date dataCurso) {
+    public Matricula(int id_matricula, int id_aluno, int id_curso, Aluno aluno, Curso curso, String dataCurso) {
         this.id_matricula = id_matricula;
         this.id_aluno = id_aluno;
         this.id_curso = id_curso;
@@ -87,11 +87,11 @@ public class Matricula {
         this.curso = curso;
     }
 
-    public Date getDataCurso() {
+    public String getDataCurso() {
         return dataCurso;
     }
 
-    public void setDataCurso(Date dataCurso) {
+    public void setDataCurso(String dataCurso) {
         this.dataCurso = dataCurso;
     }
 

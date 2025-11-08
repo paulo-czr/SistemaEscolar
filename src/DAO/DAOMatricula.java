@@ -39,10 +39,7 @@ public class DAOMatricula {
             // Define os valores da matrícula nos parâmetros do SQL
             stmt.setInt(1, matricula.getAluno().getId_aluno());
             stmt.setInt(2, matricula.getCurso().getId_curso());
-
-            // Converte a data do tipo java.util.Date para java.sql.Date
-            java.sql.Date dataSql = new java.sql.Date(matricula.getDataCurso().getTime());
-            stmt.setDate(3, dataSql);
+            stmt.setString(4, matricula.getDataCurso());
 
             // Executa o comando no banco
             stmt.executeUpdate();
@@ -113,7 +110,7 @@ public class DAOMatricula {
                 m.setId_matricula(rs.getInt("id_matricula"));
                 m.setNomeAluno(rs.getString("nome_aluno"));
                 m.setNomeCurso(rs.getString("nome_curso"));
-                m.setDataCurso(rs.getDate("data_matricula"));
+                m.setDataCurso(rs.getString("data_matricula"));
 
                 // Adiciona o objeto à lista
                 lista.add(m);

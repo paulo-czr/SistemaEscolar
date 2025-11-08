@@ -57,6 +57,8 @@ public class ExcluirMatricula extends javax.swing.JFrame {
         lbMensagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Excluir Matrícula");
+        setPreferredSize(new java.awt.Dimension(420, 450));
 
         lbExcluirMatricula.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbExcluirMatricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

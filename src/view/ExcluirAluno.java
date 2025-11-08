@@ -13,6 +13,7 @@ import view.CadastroDeAlunos;
 
 /**
  * Tela para excluir ou marcar alunos como inativos.
+ *
  * @author Paulo
  */
 public class ExcluirAluno extends javax.swing.JFrame {
@@ -44,28 +45,16 @@ public class ExcluirAluno extends javax.swing.JFrame {
     private void initComponents() {
 
         lbSelecione = new javax.swing.JLabel();
-        btnExcluir = new javax.swing.JButton();
-        btnSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaAluno = new javax.swing.JTable();
+        btnSair = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Excluir Aluno");
+        setResizable(false);
 
         lbSelecione.setText("Selecione um Aluno:");
-
-        btnExcluir.setText("Excluir");
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
-            }
-        });
-
-        btnSair.setText("Sair");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
 
         tabelaAluno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,25 +67,38 @@ public class ExcluirAluno extends javax.swing.JFrame {
                 "ID", "Nome"
             }
         ));
+        tabelaAluno.setPreferredSize(null);
         jScrollPane1.setViewportView(tabelaAluno);
+
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(btnSair)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnExcluir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbSelecione)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbSelecione)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnSair)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnExcluir))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,12 +106,12 @@ public class ExcluirAluno extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(lbSelecione)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluir)
-                    .addComponent(btnSair))
-                .addGap(55, 55, 55))
+                    .addComponent(btnSair)
+                    .addComponent(btnExcluir))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,7 +124,6 @@ public class ExcluirAluno extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        //Volta para a tela inicial
         this.dispose();
         TelaInicial menu = new TelaInicial();
         menu.setVisible(true);
@@ -162,17 +163,18 @@ public class ExcluirAluno extends javax.swing.JFrame {
             }
         });
     }
-    
+
     /**
      * Método para exclusão lógica do Aluno
      */
     private void excluirAluno() {
         int linha = tabelaAluno.getSelectedRow();
         if (linha == -1) {
-            JOptionPane.showMessageDialog(this, "Selecione um aluno para marcar como inativo!");
+            JOptionPane.showMessageDialog(this,
+                    "Selecione um aluno para marcar como inativo!");
             return;
         }
-        
+
         //Obtem o ID através da tabela
         int id = (int) tabelaAluno.getValueAt(linha, 0);
 
@@ -182,7 +184,7 @@ public class ExcluirAluno extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Aluno marcado como inativo!");
         listarAlunos(); // atualiza tabela
     }
-    
+
     /**
      * Lista todos os alunos na tabela.
      */
@@ -192,10 +194,12 @@ public class ExcluirAluno extends javax.swing.JFrame {
         List<Aluno> lista = dao.listar();
 
         for (Aluno a : lista) {
-            modelo.addRow(new Object[]{a.getId_aluno(), a.getNome()});
+            modelo.addRow(new Object[]{
+                a.getId_aluno(),
+                a.getNome()});
         }
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnSair;

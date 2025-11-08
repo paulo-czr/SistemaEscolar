@@ -8,6 +8,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Aluno;
+import util.DataUtils;
 
 /**
  * Tela de cadastro de alunos do sistema escolar.
@@ -69,6 +70,7 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
         txtDataBR = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Alunos");
 
         jLabel1.setText("E-mail:");
 
@@ -249,8 +251,6 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
         String email = txtEmail.getText().trim();
         String telefone = txtTelefone.getText().trim();
         String dataBR = txtDataBR.getText().trim();
-        //Converte a data digitada
-        String dataSQL = converterDataParaMySQL(dataBR);
 
         // Valida o nome
         if (validarNome(txtNome.getText()) == false) {
@@ -258,20 +258,20 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
                     "Erro", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
+
         //Valida o email
         if (validarEmail(txtEmail.getText()) == false) {
             JOptionPane.showMessageDialog(null, "E-mail inválido!",
                     "Erro", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        //Data obrigatória
-        if (dataSQL  == null) {
-            JOptionPane.showMessageDialog(null, "Data inválida -> Correto: dd/MM/aaaa",
-                    "Erro", JOptionPane.WARNING_MESSAGE);
+
+        //Validação da Data
+        if (DataUtils.validarData(dataBR) == null) {
             return;
         }
+        //Converte a data digitada
+        String dataSQL = DataUtils.converterDataParaMySQL(dataBR);
 
         // Preenche o objeto aluno
         aluno.setNome(nome);
@@ -293,7 +293,7 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
      * Lista todos os alunos ativos na tabela da interface.
      */
     protected void listarAlunos() {
-        DefaultTableModel modelo = (DefaultTableModel) tabelaAluno.getModel();
+        tabelaAluno.getModel();
         modelo.setRowCount(0); // Limpa a tabela antes de atualizar
 
         DAOAluno dao = new DAOAluno();
@@ -317,32 +317,33 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
         txtNome.setText("");
         txtEmail.setText("");
         txtTelefone.setText("");
+        txtDataBR.setText("");
         txtNome.requestFocus();
     }
 
-    /**
-     * Converte a data digitada pelo usuário (dataBR) para uma data aceita pelo
-     * SQL
-     *
-     * @param dataBR será convertido em dataSQL
-     */
-    private String converterDataParaMySQL(String dataBR) {
-        try {
-            SimpleDateFormat formatoEntrada = new SimpleDateFormat("dd/MM/yyyy");
-            SimpleDateFormat formatoSaida = new SimpleDateFormat("yyyy-MM-dd");
-
-            // Converte a string de entrada para o formato MySQL
-            Date data = formatoEntrada.parse(dataBR);
-            return formatoSaida.format(data);
-
-        } catch (Exception e) {
-            System.out.println(" Erro ao converter data: " + e.getMessage());
-            return null;
-        }
-    }
-
+//    /**
+//     * Converte a data digitada pelo usuário (dataBR) para uma data aceita pelo
+//     * SQL
+//     *
+//     * @param dataBR será convertido em dataSQL
+//     */
+//    public String converterDataParaMySQL(String dataBR) {
+//        try {
+//            SimpleDateFormat formatoEntrada = new SimpleDateFormat("dd/MM/yyyy");
+//            SimpleDateFormat formatoSaida = new SimpleDateFormat("yyyy-MM-dd");
+//
+//            // Converte a string de entrada para o formato MySQL
+//            Date data = formatoEntrada.parse(dataBR);
+//            return formatoSaida.format(data);
+//
+//        } catch (Exception e) {
+//            System.out.println(" Erro ao converter data: " + e.getMessage());
+//            return null;
+//        }
+//    }
     /**
      * Método usado para validação do email
+     *
      * @param email email digitado no campo txtEmail do painel
      * @return o resultado da validação REGEX - true se for válido, false se não
      */
@@ -359,20 +360,21 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
 
     /**
      * Método usado para validar o nome de uma pessoa
+     *
      * @param nome nome digitado pelo usuário no campo txtNome do painel
      * @return resultado da validação REGEX - true se válido, false se não
      */
     public static boolean validarNome(String nome) {
-    if (nome == null || nome.isEmpty()) {
-        return false;
+        if (nome == null || nome.isEmpty()) {
+            return false;
+        }
+
+        // Aceita letras, acentos e espaços entre os nomes
+        String regex = "^[A-Za-zÀ-Ÿà-ÿ]+( [A-Za-zÀ-Ÿà-ÿ]+)*$";
+
+        return nome.matches(regex);
     }
 
-    // Aceita letras, acentos e espaços entre os nomes
-    String regex = "^[A-Za-zÀ-Ÿà-ÿ]+( [A-Za-zÀ-Ÿà-ÿ]+)*$";
-
-    return nome.matches(regex);
-}
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;

@@ -51,7 +51,7 @@ public class DAOCurso {
      *
      * @param curso objeto {@link Curso} que será definido como inativo
      */
-    public void excluir(Curso curso) {
+    public void excluir(int id_curso) {
 
         // Atualiza o campo "ativo" para false, desativando o curso
         String sql = "UPDATE Curso SET ativo = false WHERE id_curso = ?";
@@ -61,7 +61,7 @@ public class DAOCurso {
              PreparedStatement stmt = con.prepareStatement(sql)) {
 
             // Define o ID do curso a ser inativado
-            stmt.setInt(1, curso.getId_curso());
+            stmt.setInt(1, id_curso);
 
             // Executa o comando no banco
             stmt.executeUpdate();
@@ -84,7 +84,7 @@ public class DAOCurso {
         List<Curso> lista = new ArrayList<>();
 
         // Comando SQL que busca todos os registros da tabela Curso
-        String sql = "SELECT * FROM Curso";
+        String sql = "SELECT * FROM Curso WHERE ativo = true";
 
         // Tenta conectar ao banco e executar o comando SQL
         try (Connection con = Conexao.conectar();
