@@ -47,8 +47,7 @@ public class ExcluirMatricula extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbExcluirMatricula = new javax.swing.JLabel();
-        lbIdMatricula = new javax.swing.JLabel();
+        lbMatricula = new javax.swing.JLabel();
         txtIdMatricula = new javax.swing.JTextField();
         btnExcluir = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
@@ -60,11 +59,7 @@ public class ExcluirMatricula extends javax.swing.JFrame {
         setTitle("Excluir Matrícula");
         setPreferredSize(new java.awt.Dimension(420, 450));
 
-        lbExcluirMatricula.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        lbExcluirMatricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbExcluirMatricula.setText("Excluir Matrícula");
-
-        lbIdMatricula.setText("ID da Matrícula:");
+        lbMatricula.setText("Matrícula:");
 
         txtIdMatricula.setColumns(35);
 
@@ -110,45 +105,35 @@ public class ExcluirMatricula extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbMensagem)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtIdMatricula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(lbMatricula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbMensagem)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnSair)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnExcluir))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbIdMatricula)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbExcluirMatricula)
-                                        .addComponent(txtIdMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(78, Short.MAX_VALUE))
+                        .addComponent(btnSair)
+                        .addGap(213, 213, 213)
+                        .addComponent(btnExcluir))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(lbExcluirMatricula)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIdMatricula)
-                    .addComponent(txtIdMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addComponent(lbMatricula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtIdMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbMensagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluir)
-                    .addComponent(btnSair))
-                .addGap(55, 55, 55))
+                    .addComponent(btnSair)
+                    .addComponent(btnExcluir))
+                .addGap(49, 49, 49))
         );
 
         pack();
@@ -236,7 +221,7 @@ public class ExcluirMatricula extends javax.swing.JFrame {
                         "Deseja realmente desativar a matrícula?",
                         "Confirmação",
                         JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE
+                        JOptionPane.WARNING_MESSAGE
                 );
 
                 if (resposta == JOptionPane.YES_OPTION) {
@@ -282,8 +267,7 @@ public class ExcluirMatricula extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnSair;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbExcluirMatricula;
-    private javax.swing.JLabel lbIdMatricula;
+    private javax.swing.JLabel lbMatricula;
     private javax.swing.JLabel lbMensagem;
     private javax.swing.JTable tabelaAluno;
     private javax.swing.JTextField txtIdMatricula;

@@ -175,14 +175,27 @@ public class ExcluirAluno extends javax.swing.JFrame {
             return;
         }
 
-        //Obtem o ID através da tabela
+        // Obtém o ID através da tabela
         int id = (int) tabelaAluno.getValueAt(linha, 0);
+        
+        // Confirmação
+        int resposta = JOptionPane.showConfirmDialog(
+                this,
+                "Deseja realmente marcar este aluno como inativo?",
+                "Confirmação",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE
+        );
+        
+        if (resposta == JOptionPane.YES_OPTION) {
+            DAOAluno dao = new DAOAluno();
+            dao.excluir(id);
 
-        DAOAluno dao = new DAOAluno();
-        dao.excluir(id);
-
-        JOptionPane.showMessageDialog(this, "Aluno marcado como inativo!");
-        listarAlunos(); // atualiza tabela
+            JOptionPane.showMessageDialog(this, "Aluno marcado como inativo!");
+            listarAlunos(); // atualiza tabela
+        } else {
+            JOptionPane.showMessageDialog(this, "Ação cancelada!");
+        }
     }
 
     /**

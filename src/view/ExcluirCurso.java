@@ -176,12 +176,26 @@ public class ExcluirCurso extends javax.swing.JFrame {
 
         //Obtem o ID através da tabela
         int id = (int) tabelaCurso.getValueAt(linha, 0);
+        
+        // Confirmação
+        int resposta = JOptionPane.showConfirmDialog(
+                this,
+                "Deseja realmente marcar este curso como inativo?",
+                "Confirmação",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE
+        );
+        
+        if (resposta == JOptionPane.YES_OPTION) {
+            DAOAluno dao = new DAOAluno();
+            dao.excluir(id);
 
-        DAOCurso dao = new DAOCurso();
-        dao.excluir(id);
+            JOptionPane.showMessageDialog(this, "Curso marcado como inativo!");
+            listarCursos(); // atualiza tabela
+        } else {
+            JOptionPane.showMessageDialog(this, "Ação cancelada!");
+        }
 
-        JOptionPane.showMessageDialog(this, "Curso marcado como inativo!");
-        listarCursos(); // atualiza tabela
     }
 
     /**
