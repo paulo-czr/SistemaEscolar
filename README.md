@@ -93,31 +93,33 @@ O projeto utiliza MySQL via mysql-connector-j-9.1.0.jar.
 
 Exemplo de criação do Banco:
 ```sql
-    CREATE DATABASE sistema_escolar;
+    CREATE DATABASE Sistema_Escolar;
 
-    USE sistema_escolar;
+    USE Sistema_Escolar;
 
-    CREATE TABLE aluno (
-        id_aluno INT PRIMARY KEY AUTO_INCREMENT,
-        nome VARCHAR(100),
-        email VARCHAR(100),
-        data_nascimento DATE,
+    CREATE TABLE Aluno (
+        id_aluno INT UNIQUE PRIMARY KEY AUTO_INCREMENT,
+        nome VARCHAR(100) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        telefone VARCHAR(20),
+        data_nasc DATE NOT NULL,
         ativo BOOLEAN DEFAULT TRUE
     );
 
-    CREATE TABLE curso (
-        id_curso INT PRIMARY KEY AUTO_INCREMENT,
-        nome VARCHAR(100),
-        carga_horaria INT,
+    CREATE TABLE Curso (
+        id_curso INT UNIQUE PRIMARY KEY AUTO_INCREMENT,
+        nome_curso VARCHAR(100) NOT NULL,
+        carga_horaria INT NOT NULL,
         ativo BOOLEAN DEFAULT TRUE
     );
 
-    CREATE TABLE matricula (
-        id_matricula INT PRIMARY KEY AUTO_INCREMENT,
-        id_aluno INT,
-        id_curso INT,
-        data_matricula DATE,
+    CREATE TABLE Matricula (
+        id_matricula INT UNIQUE PRIMARY KEY AUTO_INCREMENT,
+        id_aluno INT NOT NULL,
+        id_curso INT NOT NULL,
+        data_matricula DATE NOT NULL,
         ativo BOOLEAN DEFAULT TRUE,
+        CONSTRAINT UC_Matricula UNIQUE (id_aluno, id_curso),
         FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno),
         FOREIGN KEY (id_curso) REFERENCES curso(id_curso)
     );
