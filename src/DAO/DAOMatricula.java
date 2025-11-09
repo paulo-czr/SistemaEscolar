@@ -39,7 +39,7 @@ public class DAOMatricula {
             // Define os valores da matrícula nos parâmetros do SQL
             stmt.setInt(1, matricula.getAluno().getId_aluno());
             stmt.setInt(2, matricula.getCurso().getId_curso());
-            stmt.setString(4, matricula.getDataCurso());
+            stmt.setString(3, matricula.getDataCurso());
 
             // Executa o comando no banco
             stmt.executeUpdate();
