@@ -267,6 +267,8 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
                     e.getMessage(),
                     "Erro", JOptionPane.WARNING_MESSAGE);
         }
+        limparCampos();
+        listarMatriculas();
     }
 
     private void listarMatriculas() {
@@ -331,6 +333,14 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
             System.out.println(" Erro ao converter data: " + e.getMessage());
             return null;
         }
+    }
+    
+        /**
+     * Limpa os campos digitados
+     */
+    private void limparCampos() {
+        txtDataBR.setText("");
+        txtDataBR.requestFocus();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;

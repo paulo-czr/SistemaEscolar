@@ -320,27 +320,7 @@ public class CadastroDeAlunos extends javax.swing.JFrame {
         txtDataBR.setText("");
         txtNome.requestFocus();
     }
-
-//    /**
-//     * Converte a data digitada pelo usuário (dataBR) para uma data aceita pelo
-//     * SQL
-//     *
-//     * @param dataBR será convertido em dataSQL
-//     */
-//    public String converterDataParaMySQL(String dataBR) {
-//        try {
-//            SimpleDateFormat formatoEntrada = new SimpleDateFormat("dd/MM/yyyy");
-//            SimpleDateFormat formatoSaida = new SimpleDateFormat("yyyy-MM-dd");
-//
-//            // Converte a string de entrada para o formato MySQL
-//            Date data = formatoEntrada.parse(dataBR);
-//            return formatoSaida.format(data);
-//
-//        } catch (Exception e) {
-//            System.out.println(" Erro ao converter data: " + e.getMessage());
-//            return null;
-//        }
-//    }
+    
     /**
      * Método usado para validação do email
      *

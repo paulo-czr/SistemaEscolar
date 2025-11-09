@@ -213,7 +213,7 @@ public class ExcluirMatricula extends javax.swing.JFrame {
         boolean encontrado = false;
 
         for (Matricula m : lista) {
-            if (m.getId_matricula()== id_desejado) {
+            if (m.getId_matricula() == id_desejado) {
                 // Confirmação antes de excluir
                 int resposta = JOptionPane.showConfirmDialog(
                         this,
@@ -250,7 +250,7 @@ public class ExcluirMatricula extends javax.swing.JFrame {
         modelo.setRowCount(0);
 
         DAOMatricula dao = new DAOMatricula();
-        List<Matricula> lista = dao.listar(); // Lista todas as matrículas
+        List<Matricula> lista = dao.listar();
 
         for (Matricula m : lista) {
             modelo.addRow(new Object[]{
@@ -260,7 +260,14 @@ public class ExcluirMatricula extends javax.swing.JFrame {
             });
         }
     }
-
+    
+    /**
+     * Limpa os campos digitados
+     */
+    private void limparCampos() {
+        txtIdMatricula.setText("");
+        txtIdMatricula.requestFocus();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExcluir;
