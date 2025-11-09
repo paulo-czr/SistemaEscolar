@@ -36,7 +36,7 @@ public class DataUtils {
 
     /**
      * Valida uma data no formato BR (dd/MM/yyyy) e retorna um objeto Date.
-     * Retorna null se a data for inválida.
+     * Retorna null se a data for inválida ou estiver no futuro.
      *
      * @param dataBR data no formato dd/MM/yyyy
      * @return objeto Date se válido, null caso contrário
@@ -49,10 +49,20 @@ public class DataUtils {
         }
 
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        formato.setLenient(false); // garante que datas reais sejam validadas
+        formato.setLenient(false);
 
         try {
-            return formato.parse(dataBR); // retorna o objeto Date
+            Date data = formato.parse(dataBR); // converte a string para Date
+
+            // Verifica se a data é no futuro
+            Date hoje = new Date();
+            if (data.after(hoje)) {
+                JOptionPane.showMessageDialog(null, "A data não pode ser no futuro!",
+                        "Erro", JOptionPane.WARNING_MESSAGE);
+                return null;
+            }
+
+            return data;
         } catch (ParseException e) {
             JOptionPane.showMessageDialog(null, "Data inválida! Correto: dd/MM/aaaa",
                     "Erro", JOptionPane.WARNING_MESSAGE);
