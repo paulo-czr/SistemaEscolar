@@ -3,11 +3,13 @@
 Um sistema desktop de gerenciamento escolar desenvolvido em Java
 (Swing + NetBeans) com integração ao MySQL.
 O sistema permite cadastrar, editar, listar e inativar alunos, cursos e
-matrículas, oferecendo uma interface simples e intuitiva.
+matrículas, oferecendo uma interface simples e intuitiva. 
 
+ --- 
+ 
 ## Sumário
 
-- [Descrição Geral](#descrição-geral)
+- [Descrição Geral](#sistema-escolar)
 - [Funcionalidades](#funcionalidades)
 - [Conceitos Utilizados](#conceitos-utilizados)
 - [Estrutura do Projeto](#estrutura-do-projeto)
@@ -16,6 +18,8 @@ matrículas, oferecendo uma interface simples e intuitiva.
 - [Como Executar o Projeto](#como-executar-o-projeto)
 - [Autor](#autor) 
 
+ --- 
+ 
 ## Funcionalidades
 
 #### Alunos
@@ -45,11 +49,15 @@ matrículas, oferecendo uma interface simples e intuitiva.
 -   Conexão com banco MySQL
 -   Estrutura DAO completa (Aluno, Curso, Matrícula) 
  
+ --- 
+ 
  ## Conceitos Utilizados 
 - Programação Orientada a Objetos (POO)
 - Arquitetura e Organização do Projeto (MVC & DAO)
 - Integração com Banco de Dados (JDBC)
   
+ --- 
+ 
  ## Estrutura do Projeto
 
     SistemaEscolar/
@@ -67,6 +75,8 @@ matrículas, oferecendo uma interface simples e intuitiva.
     │
     └── nbproject/            # Configurações do NetBeans
 
+ --- 
+ 
 ## Tecnologias Utilizadas
 
 -   Java 21
@@ -75,12 +85,14 @@ matrículas, oferecendo uma interface simples e intuitiva.
 -   JDBC
 -   NetBeans 23
 
+ --- 
+ 
 ## Banco de Dados
 
 O projeto utiliza MySQL via mysql-connector-j-9.1.0.jar.
 
 Exemplo de criação do Banco:
-
+```sql
     CREATE DATABASE sistema_escolar;
 
     USE sistema_escolar;
@@ -109,7 +121,10 @@ Exemplo de criação do Banco:
         FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno),
         FOREIGN KEY (id_curso) REFERENCES curso(id_curso)
     );
-
+```
+ 
+ --- 
+ 
 ## Como Executar o Projeto
 
 #### 1. Faça o clone do repositório 
@@ -136,11 +151,13 @@ e coloque seu usuário, senha e nome do banco MySQL.
 
 Clique no botão Run do NetBeans. 
 
+ --- 
+ 
 ## Bibliotecas Inclusas
 
 -   mysql-connector-j-9.1.0.jar
--   jcalendar-1.4.jar
---- 
+ 
+ --- 
  
 ## Autor
 
