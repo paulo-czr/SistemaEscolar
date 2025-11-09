@@ -196,6 +196,7 @@ public class ExcluirAluno extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Ação cancelada!");
         }
+        listarAlunos();
     }
 
     /**
