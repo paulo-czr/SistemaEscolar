@@ -239,6 +239,7 @@ public class ExcluirMatricula extends javax.swing.JFrame {
                     "Erro", JOptionPane.WARNING_MESSAGE);
         }
         listarMatriculasAtivas();
+        limparCampos();
     }
 
     /**

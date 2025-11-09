@@ -267,8 +267,8 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
                     e.getMessage(),
                     "Erro", JOptionPane.WARNING_MESSAGE);
         }
-        limparCampos();
         listarMatriculas();
+        limparCampos();
     }
 
     private void listarMatriculas() {
