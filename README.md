@@ -3,7 +3,8 @@
 Um sistema desktop de gerenciamento escolar desenvolvido em Java
 (Swing + NetBeans) com integração ao MySQL.
 O sistema permite cadastrar, editar, listar e inativar alunos, cursos e
-matrículas, oferecendo uma interface simples e intuitiva. 
+matrículas, oferecendo uma interface simples e intuitiva.  
+ [Vídeo do Projeto](https://www.linkedin.com/posts/paulo-czr_java-netbeans-mysql-activity-7393314364277268481-s8UG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE0sl04BDVl7biGrslHdTRAzdOpkGUGJtWo) 
 
  --- 
  
