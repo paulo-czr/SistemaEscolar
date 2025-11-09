@@ -336,7 +336,7 @@ public class MatriculasEmCursos extends javax.swing.JFrame {
     }
     
         /**
-     * Limpa os campos digitados
+     * Limpa os campos digitados pelo usuário
      */
     private void limparCampos() {
         txtDataBR.setText("");
