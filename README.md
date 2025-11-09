@@ -7,14 +7,14 @@ matrículas, oferecendo uma interface simples e intuitiva.
 
 ## Sumário
 
-- [Descrição Geral](#-descrição-geral)
-- [Funcionalidades](#-funcionalidades)
-- [Conceitos Utilizados](#-conceitos-utilizados)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Banco de Dados](#-banco-de-dados)
-- [Como Executar o Projeto](#-como-executar-o-projeto)
-- [Autor](#-autor) 
+- [Descrição Geral](#descrição-geral)
+- [Funcionalidades](#funcionalidades)
+- [Conceitos Utilizados](#conceitos-utilizados)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Banco de Dados](#banco-de-dados)
+- [Como Executar o Projeto](#como-executar-o-projeto)
+- [Autor](#autor) 
 
 ## Funcionalidades
 
