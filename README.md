@@ -26,7 +26,6 @@ matrículas, oferecendo uma interface simples e intuitiva.
 #### Alunos
 
 -   Cadastro de aluno
--   Edição de informações
 -   Exclusão lógica (marcar como inativo)
 -   Listagem em tabela
 -   Validações de dados (nome, e-mail, data, etc.)
@@ -34,14 +33,13 @@ matrículas, oferecendo uma interface simples e intuitiva.
 #### Cursos
 
 -   Cadastro de novos cursos
--   Alteração de dados
 -   Exclusão lógica
 -   Visualização em tabela
 
 #### Matrículas
 
 -   Matrícula de alunos em cursos
--   Edição e cancelamento
+-   Cancelamento
 -   Consulta geral de matrículas
 
 #### Utilidades
